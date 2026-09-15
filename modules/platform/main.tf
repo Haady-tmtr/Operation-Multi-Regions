@@ -164,5 +164,9 @@ resource "aws_instance" "web" {
   metadata_options {
     http_tokens = "required"
   }
-  tags = { Name = "${var.project_name}-${var.environment}-web-01" }
+  tags = { 
+    Name = "${var.project_name}-${var.environment}-web-01" 
+    Environment = var.environment
+    Role        = "web"
+    }
 }

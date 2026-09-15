@@ -1,0 +1,25 @@
+---
+- name: Configuration du serveur Web
+  hosts: role_web
+  gather_facts: true
+  become: true
+  vars:
+    ansible_user: ssm-user
+
+  tasks:
+    - name: Installer Nginx
+      ansible.builtin.dnf:
+        name: nginx
+        state: present
+
+    - name: Déployer une page index personnalisée
+      ansible.builtin.copy:
+        dest: /usr/share/nginx/html/index.html
+        content: "<h1>EduNova déployé par Ansible via SSM</h1>\n"
+        mode: "0644"
+
+    - name: Démarrer et activer le service Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
