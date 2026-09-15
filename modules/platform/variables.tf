@@ -19,10 +19,10 @@ variable "vpc_cidr" {
 
 # Ajout des 4 subnets
 variable "public_subnet_cidrs" {
-  type    = list(string)
-  default = ["10.30.1.0/24", "10.30.2.0/24"]
+  type = list(string)
+  #default = ["10.30.1.0/24", "10.30.2.0/24"]
 }
 variable "private_subnet_cidrs" {
-  type    = list(string)
-  default = ["10.30.11.0/24", "10.30.12.0/24"]
+  type = list(string)
+  #default = ["10.30.11.0/24", "10.30.12.0/24"]
 }
